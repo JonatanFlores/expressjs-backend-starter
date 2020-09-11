@@ -15,6 +15,7 @@ const app = express();
 
 app.use(express.json());
 app.use('/files', express.static(storageConfig.uploadsFolder));
+app.use('/public', express.static(storageConfig.publicFolder));
 app.use(routes);
 
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {

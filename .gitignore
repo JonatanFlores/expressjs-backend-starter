@@ -9,3 +9,6 @@ ormconfig.json
 
 tmp/*
 !tmp/.gitkeep
+
+public/uploads/*
+!public/uploads/.gitkeep

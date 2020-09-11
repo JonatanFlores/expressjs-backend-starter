@@ -4,11 +4,13 @@ import crypto from 'crypto';
 import multer, { StorageEngine } from 'multer';
 
 const tmpFolder = path.join(__dirname, '../../tmp');
+const publicFolder = path.join(__dirname, '../../public');
 
 interface IStorageConfig {
   driver: 'disk' | 's3';
 
   tmpFolder: string;
+  publicFolder: string;
   uploadsFolder: string;
 
   multer: {
@@ -27,7 +29,8 @@ export default {
   driver: process.env.STORAGE_DRIVER,
 
   tmpFolder,
-  uploadsFolder: path.resolve(tmpFolder, 'uploads'),
+  publicFolder,
+  uploadsFolder: path.resolve(publicFolder, 'uploads'),
 
   multer: {
     storage: multer.diskStorage({
